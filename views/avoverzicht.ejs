@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flynth Voorraad</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+body {
+            background-image: url('https://www.jesusislife.in/wp-content/uploads/2019/05/Savin-NY-Website-Background-Web.jpg');
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333333; /* Dark Gray */
+	            background-attachment: fixed; /* Fixeer de achtergrond om te voorkomen dat deze scrollt */
+            background-size: cover;
+            background-position: bottom;
+}
+
+.container {
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2% auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-primary {
+    background-color: #007BFF; /* Bright Blue */
+    border-color: #0056b3; /* Darker Blue */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004386;
+}
+
+.btn-success {
+    background-color: #28A745; /* Fresh Green */
+    border-color: #1e7e34;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #1e7e34;
+    border-color: #155724;
+}
+
+header {
+    background-color: #007BFF; /* Bright Blue */
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+}
+
+nav ul li {
+    display: inline-block; /* Zorgt ervoor dat items naast elkaar blijven */
+    margin: 0 10px; /* Aangepaste marge */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 14px; /* Kleinere tekstgrootte */
+    transition: color 0.3s;
+}
+
+nav ul li a i {
+    font-size: 14px; /* Kleinere icoongrootte */
+}
+
+/* Media Query voor kleinere schermen */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block; /* Items onder elkaar op kleine schermen */
+        margin-top: 10px;
+    }
+
+    nav ul {
+        text-align: center;
+    }
+}
+
+.floating-logo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px;
+}
+
+.floating-logo img {
+    width: 150px;
+    height: auto;
+}
+.logout {
+    float: right;
+}
+/* Filters */
+.filter-group-container {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 0px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.custom-select {
+    margin: 10px 0;
+}
+
+/* Tabel */
+#avEquipmentTable {
+    background-color: #fff;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#avEquipmentTable th, #avEquipmentTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#avEquipmentTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#avEquipmentTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #28A745;
+    color: white;
+}
+    /* Stijlen voor de zoekknop */
+    .dataTables_filter label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #28A745; /* Achtergrondkleur van de knop */
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: white; /* Tekstkleur */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .dataTables_filter input {
+        margin-left: 10px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid #28A745;
+    }
+
+    /* Stijlen voor de zoekinput als deze de focus heeft */
+    .dataTables_filter input:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    }
+
+    /* Verberg de standaard zoekknop als die bestaat */
+    .dataTables_filter button {
+        display: none;
+    }
+/* Media Query voor kleinere schermen */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block; /* Items onder elkaar op kleine schermen */
+        margin-top: 10px;
+    }
+
+    nav ul {
+        text-align: center;
+    }
+}
+
+        .floating-logo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 10px;
+        }
+
+        .floating-logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .logout {
+            float: right;
+        }
+		.card-img-top {
+    height: 200px; /* Stel hier de gewenste hoogte in voor de afbeeldingen in de kaarten */
+    object-fit: cover; /* Hiermee wordt de afbeelding behouden met dezelfde verhoudingen en bijgesneden om in de container te passen */
+}
+        /* Aangepaste stijlen voor mobiele weergave */
+        @media (max-width: 768px) {
+            .col-md-4 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            .card {
+                margin-bottom: 20px; /* Voeg wat ruimte toe tussen de kaarten */
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/">Flynth Voorraad</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/overzicht"><i class="fas fa-tv"></i> TV Schermen voorraad</a></li>
+                <li class="nav-item"><a class="nav-link" href="/avoverzicht"><i class="fas fa-tv"></i> AV apparatuur voorraad</a></li>
+                <li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Uitloggen</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="https://www.flynth.nl/Portals/0/Flynth_logo.svg?ver=m2f-ZUmJcYKKep2CzZJIDg%3D%3D"
+                alt="Flynth Logo" style="width: 200px; height: auto;">
+        </div>
+        <div class="floating-logo">
+            <img src="https://i.postimg.cc/QtRQ9HWN/Beleef-AV-344.png" alt="BeleefAV Logo">
+        </div>
+
+            <h1 class="form-title"><b>AV-apparatuur overzicht</b></h1>
+            <p>Dit is een overzicht van de beschikbare AV-apparatuur. Gebruik de filters hieronder om de resultaten te verfijnen.</p>
+             <div class="card">       
+            <div class="filter-group-container">
+                <div class="filter-group">
+                    <label class="filter-label" for="merkFilter">Filter op merk:</label>
+                    <select id="merkFilter" class="custom-select">
+                        <option value="">Kies een merk</option>
+                        <option value="Logitech">Logitech</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label" for="beschikbaarheidFilter">Filter op beschikbaarheid:</label>
+                    <select id="beschikbaarheidFilter" class="custom-select">
+                        <option value="">Kies beschikbaarheid</option>
+                        <option value="Ja">Ja</option>
+                        <option value="Nee">Nee</option>
+                        <option value="Gereserveerd">Gereserveerd</option>
+                    </select>
+                </div>
+				<div class="filter-group">
+    <label class="filter-label" for="locatieInzetFilter">Filter op locatie inzet:</label>
+    <select id="locatieInzetFilter" class="custom-select">
+        <option value="">Kies locatie inzet</option>
+        <option value="Venlo">Venlo</option>
+        <option value="Arnhem">Arnhem</option>
+        <option value="Tiel">Tiel</option>
+        <option value="Zoetermeer">Zoetermeer</option>
+        <option value="Groningen">Groningen</option>
+        <option value="Opheusden">Opheusden</option>
+        <option value="Emmen">Emmen</option>
+        <option value="Eindhoven">Eindhoven</option>
+    </select>
+</div>
+            </div>
+
+        <div class="table-responsive" style="overflow-x: hidden;">
+            <table class="table" id="avEquipmentTable">
+<thead>
+<tr>
+    <th>#</th>
+    <th>Merk</th>
+    <th>Model</th>
+    <th>Barcode</th>
+    <th>Serienummer</th>
+    <th>Herkomst</th>
+    <th>Staat</th>
+    <th>Beschikbaarheid</th>
+    <th>Opmerkingen</th>
+    <th>LocatieInzet</th>
+</tr>
+</thead>
+<tbody>
+    <% bvaData.forEach((item, index) => { %>
+<tr>
+    <td><%= index + 1 %></td>
+    <td><%= item['Merk'] %></td>
+    <td><%= item['Model'] %></td>
+    <td><%= item['Barcode'] %></td>
+    <td><%= item['Serienummer'] %></td>
+    <td><%= item['Herkomst'] %></td>
+    <td><%= item['Staat'] %></td>
+    <td><%= item['Beschikbaarheid'] %></td>
+    <td><%= item['Opmerkingen'] %></td>
+    <td><%= item['Locatie Inzet'] %></td>
+</tr>
+    <% }); %>
+</tbody>
+        </table>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script>
+$(document).ready(function () {
+    var table = $('#avEquipmentTable').DataTable({
+        responsive: true,
+        paging: false,
+        pageLength: 100,
+        language: {
+            search: "Zoeken",
+        },
+        columnDefs: [
+            { targets: [1, 2, 3], visible: true }, // Toon alleen Merk, Model, en Beschikbaarheid
+            { targets: '_all', visible: false } // Verberg alle andere kolommen
+        ],
+        autoFill: {
+            columns: ':not(:first-child)' // AutoFill toepassen op alle kolommen behalve de eerste (ID) kolom
+        }
+    });
+
+    // Event listener voor het merkfilter
+    $('#merkFilter').on('change', function () {
+        var selectedBrand = $(this).val();
+        table.column(1).search(selectedBrand).draw();
+    });
+
+
+    // Event listener voor het beschikbaarheidsfilter
+    $('#beschikbaarheidFilter').on('change', function () {
+        var selectedAvailability = $(this).val();
+        table.column(7).search(selectedAvailability).draw();
+    });
+
+    // Event listener voor het locatie-inzet filter
+    $('#locatieInzetFilter').on('change', function () {
+        var selectedLocation = $(this).val();
+        table.column(9).search(selectedLocation).draw();
+    });
+
+    // Voeg een eventhandler toe om details weer te geven/verbergen wanneer erop wordt geklikt
+    $('#avEquipmentTable tbody').on('click', 'tr', function () {
+        var tr = $(this);
+        var row = table.row(tr);
+
+        if (row.child.isShown()) {
+            // Details worden getoond, verberg ze
+            row.child.hide();
+            tr.removeClass('shown');
+        } else {
+            // Details worden verborgen, toon ze
+            row.child(format(row.data())).show();
+            tr.addClass('shown');
+        }
+    });
+
+    // Functie om de opmaak van de details te maken
+function format(data) {
+    return '<div>' +
+        '<b>ID:</b> ' + data[0] + '<br>' +
+        '<b>Merk:</b> ' + data[1] + '<br>' +
+        '<b>Model:</b> ' + data[2] + '<br>' +
+        '<b>Barcode:</b> ' + data[3] + '<br>' +        
+        '<b>Serienummer:</b> ' + data[4] + '<br>' +		
+        '<b>Herkomst:</b> ' + data[5] + '<br>' +		
+        '<b>Staat:</b> ' + data[6] + '<br>' +		
+		'<b>Beschikbaarheid:</b> ' + data[7] + '<br>' +
+        '<b>Opmerkingen:</b> ' + data[8] + '<br>' +
+        '<b>Locatie Inzet:</b> ' + data[9] + '<br>' +
+        '</div>';
+}
+
+    // Bereken het totale aantal apparaten
+    var totalDevicesCount = $('#avEquipmentTable tbody tr').length;
+    $('#totalDevicesCount').text(totalDevicesCount);
+
+    // Bereken het aantal beschikbaar (Ja)
+    var availableYesCount = $('#avEquipmentTable tbody tr:contains("Ja")').length;
+    $('#availableYesCount').text(availableYesCount);
+
+    // Bereken het aantal beschikbaar (Nee)
+    var availableNoCount = $('#avEquipmentTable tbody tr:contains("Nee")').length;
+    $('#availableNoCount').text(availableNoCount);
+});
+</script>
+
+</body>
+</html>

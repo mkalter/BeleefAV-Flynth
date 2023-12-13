@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flynth Voorraad</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+body {
+            background-image: url('https://www.jesusislife.in/wp-content/uploads/2019/05/Savin-NY-Website-Background-Web.jpg');
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333333; /* Dark Gray */
+	            background-attachment: fixed; /* Fixeer de achtergrond om te voorkomen dat deze scrollt */
+            background-size: cover;
+            background-position: bottom;
+}
+
+.container {
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2% auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-primary {
+    background-color: #007BFF; /* Bright Blue */
+    border-color: #0056b3; /* Darker Blue */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004386;
+}
+
+.btn-success {
+    background-color: #28A745; /* Fresh Green */
+    border-color: #1e7e34;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #1e7e34;
+    border-color: #155724;
+}
+
+header {
+    background-color: #007BFF; /* Bright Blue */
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+}
+
+nav ul li {
+    display: inline-block; /* Zorgt ervoor dat items naast elkaar blijven */
+    margin: 0 10px; /* Aangepaste marge */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 14px; /* Kleinere tekstgrootte */
+    transition: color 0.3s;
+}
+
+nav ul li a i {
+    font-size: 14px; /* Kleinere icoongrootte */
+}
+
+/* Media Query voor kleinere schermen */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block; /* Items onder elkaar op kleine schermen */
+        margin-top: 10px;
+    }
+
+    nav ul {
+        text-align: center;
+    }
+}
+
+.floating-logo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px;
+}
+
+.floating-logo img {
+    width: 150px;
+    height: auto;
+}
+.logout {
+    float: right;
+}
+.choice-buttons {
+    display: flex;
+    justify-content: center; /* Centreert de knoppen horizontaal */
+    align-items: center;     /* Centreert de knoppen verticaal (indien nodig) */
+    gap: 20px;               /* Ruimte tussen de knoppen */
+    padding: 20px;           /* Padding binnen de keuze-buttons container */
+}
+
+/* Media Query voor kleinere schermen */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block; /* Items onder elkaar op kleine schermen */
+        margin-top: 10px;
+    }
+
+    nav ul {
+        text-align: center;
+    }
+}
+
+        .floating-logo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 10px;
+        }
+
+        .floating-logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .logout {
+            float: right;
+        }
+		.card-img-top {
+    height: 200px; /* Stel hier de gewenste hoogte in voor de afbeeldingen in de kaarten */
+    object-fit: cover; /* Hiermee wordt de afbeelding behouden met dezelfde verhoudingen en bijgesneden om in de container te passen */
+}
+        /* Aangepaste stijlen voor mobiele weergave */
+        @media (max-width: 768px) {
+            .col-md-4 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            .card {
+                margin-bottom: 20px; /* Voeg wat ruimte toe tussen de kaarten */
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/">Flynth Voorraad</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/tv-beheer"><i class="fas fa-tv"></i> TV Schermen voorraad</a></li>
+                <li class="nav-item"><a class="nav-link" href="/bva"><i class="fas fa-tv"></i> AV apparatuur voorraad</a></li>
+                <li class="nav-item"><a class="nav-link" href="/tv-toevoegen"><i class="fas fa-tv"></i> Apparatuur toevoegen</a></li>
+                <li class="nav-item"><a class="nav-link" href="/tv-picken"><i class="fas fa-tv"></i> Apparatuur picken</a></li>
+                <li class="nav-item"><a class="nav-link" href="/tv-kiezen"><i class="fas fa-tv"></i> Apparatuur reserveren</a></li>
+                <li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Uitloggen</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+    <div class="container mt-5">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="https://www.flynth.nl/Portals/0/Flynth_logo.svg?ver=m2f-ZUmJcYKKep2CzZJIDg%3D%3D"
+                alt="Flynth Logo" style="width: 200px; height: auto;">
+        </div>
+        <div class="floating-logo">
+            <img src="https://i.postimg.cc/QtRQ9HWN/Beleef-AV-344.png" alt="BeleefAV Logo">
+        </div>
+
+        <h1 class="mb-4"><b>TV scherm reserveren</b></h1>
+        <p>Kies hier een scherm dat gereserveerd moet worden genomen.</p>
+        <div class="choice-buttons">
+            <button id="addTvButton" class="btn btn-primary">TV Scherm kiezen</button>
+            <button id="addBvaButton" class="btn btn-success">AV apparatuur kiezen</button>
+        </div>
+        <div class="card form-card" id="tvFormCard" style="display: none;">
+            <form action="/pick_tv" method="post" id="tv-form-id">
+                <div class="form-group">
+                    <label for="tv-selection">Selecteer TV:</label>
+<select class="form-control" id="tv-selection" name="tvSelection" required>
+     <% tvData.forEach(tv => { %>
+        <option value="<%= `${tv.Merk} - ${tv.Model} - ${tv['Scherm Formaat']} inch - ${tv.Barcode}` %>">
+            <%= `${tv.Merk} - ${tv.Model} - ${tv['Scherm Formaat']} inch - ${tv.Barcode}` %>
+        </option>
+    <% }); %>
+</select>
+                </div>
+                <div class="form-group">
+                    <label for="locatie-inzet">Ruimte inzet:</label>
+                    <input type="text" class="form-control" id="locatie-inzet" name="locatieInzet" required>
+                </div>
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary">Reserveer</button>
+                </div>
+                <div id="success-message" class="alert alert-success" style="display: none;">
+                    <strong>Succes!</strong> Uw actie is succesvol voltooid.
+                </div>
+            </form>
+        </div>
+        
+        <div class="card form-card" id="bvaFormCard" style="display: none;">
+            <form action="/pick_av" method="post" id="av-form-id">
+                <div class="form-group">
+                    <label for="av-selection">Selecteer AV Apparatuur:</label>
+<select class="form-control" id="av-selection" name="avSelection" required>
+    <% bvaData.forEach(av => { %>
+    <option value="<%= `${av.Merk} - ${av.Model} - ${av['Scherm Formaat']} inch - ${av.Barcode}` %>">
+        <%= `${av.Merk} - ${av.Model} - ${av['Scherm Formaat']} inch - ${av.Barcode}` %>
+    </option>
+<% }); %>
+</select>
+                </div>
+                <div class="form-group">
+                    <label for="locatie-inzet">Ruimte inzet:</label>
+                    <input type="text" class="form-control" id="locatie-inzet" name="locatieInzet" required>
+                </div>
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary">Reserveer</button>
+                </div>
+                <div id="success-message" class="alert alert-success" style="display: none;">
+                    <strong>Succes!</strong> Uw actie is succesvol voltooid.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+$(document).ready(function() {
+    const addTvButton = $("#addTvButton");
+    const addBvaButton = $("#addBvaButton");
+    const tvFormCard = $("#tvFormCard");
+    const bvaFormCard = $("#bvaFormCard");
+
+    addTvButton.on("click", function() {
+        tvFormCard.show();
+        bvaFormCard.hide();
+    });
+
+    addBvaButton.on("click", function() {
+        tvFormCard.hide();
+        bvaFormCard.show();
+    });
+
+    function showSuccessMessage() {
+        alert("Succes! Uw actie is succesvol voltooid.");
+    }
+
+    $("#tv-form-id").on("submit", function(event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+
+        $.ajax({
+            url: '/pick_tv',
+            type: 'POST',
+            data: formData,
+            success: function(response) {
+                showSuccessMessage();
+                location.reload(); // Refreshes the page
+            },
+            error: function(xhr, status, error) {
+                // Handle error
+            }
+        });
+    });
+
+    $("#av-form-id").on("submit", function(event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+
+        $.ajax({
+            url: '/pick_av',
+            type: 'POST',
+            data: formData,
+            success: function(response) {
+                showSuccessMessage();
+                location.reload(); // Refreshes the page
+            },
+            error: function(xhr, status, error) {
+                // Handle error
+            }
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
